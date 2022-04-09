@@ -10,7 +10,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from '@apollo/react-hooks';
 import { QUERY_CHECKOUT } from "../../utils/queries"
 
-const stripePromise = loadStripe('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripePromise = loadStripe('pk_test_51KmRAADm7uhv4WBiAHwKVqz3f29TWnDm1TEboZQUiRZ5abF6WMfIF2vZtWbRNkgyixP5m6ad28XdhiofdRjk2bCv00khHtv5fm');
 
 const Cart = () => {
 
