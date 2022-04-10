@@ -52,7 +52,7 @@ If you are still interested in running the application you would need to do the 
 
 ### Walkthrough video
 
-![./gif/walkthrough.gif](./gif/walkthrough.gif "shop-shop.gif")
+[walkthrough](.gif/walkthrough.gif)
 
 <a name="credits"></a>
 ## 5. Credits
