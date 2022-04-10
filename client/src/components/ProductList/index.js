@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+//redux
 //import { useStoreContext } from '../../utils/GlobalState';
 import { useDispatch, useSelector } from 'react-redux';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
@@ -7,12 +8,13 @@ import { useQuery } from '@apollo/react-hooks';
 import ProductItem from "../ProductItem";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import spinner from "../../assets/spinner.gif"
-
 import { idbPromise } from "../../utils/helpers";
 
 
 function ProductList({}) {
 
+  //redux 
+  //const [state, dispatch] = useStoreContext();
   const state = useSelector((state) => {
     return state
   });
@@ -23,6 +25,8 @@ function ProductList({}) {
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
+  //const products = data?.products || [];
+
   useEffect(() => {
     if (data) {
       dispatch({
@@ -30,11 +34,13 @@ function ProductList({}) {
         products: data.products
       });
 
+
       data.products.forEach((product) => {
         idbPromise('products', 'put', product);
       });
     } else if (!loading) {
       idbPromise('products', 'get').then((products) => {
+     
         console.log("I am offline")
         dispatch({
           type: UPDATE_PRODUCTS,

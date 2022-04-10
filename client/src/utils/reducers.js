@@ -1,3 +1,6 @@
+//redux 
+//import { useReducer } from 'react';
+
 import {
   UPDATE_PRODUCTS,
   UPDATE_CATEGORIES,
@@ -20,25 +23,25 @@ const defaultState = {
   
   const reducer = (state=defaultState, action) => {
     switch (action.type) {
-     
+       
         case UPDATE_PRODUCTS:
             return {
             ...state,
             products: [...action.products]
             };
-    
+   
         case UPDATE_CATEGORIES:
             return {
             ...state,
             categories: [...action.categories]
             };
-       
+      
         case UPDATE_CURRENT_CATEGORY:
             return {
                 ...state,
                 currentCategory: action.currentCategory
             };
-
+   
         case ADD_TO_CART:
           return {
             ...state,
@@ -51,7 +54,7 @@ const defaultState = {
             ...state,
             cart: [...state.cart, ...action.products],
           };
-     
+       
         case REMOVE_FROM_CART:
           let newState = state.cart.filter(product => {
             return product._id !== action._id;
@@ -95,3 +98,8 @@ const defaultState = {
 
 
   export default reducer;
+
+  //  redux logic
+  // export function useProductReducer(initialState) {
+  //   return useReducer(reducer, initialState);
+  // }

@@ -15,7 +15,9 @@ import { idbPromise } from "../utils/helpers";
 import spinner from '../assets/spinner.gif'
 
 function Detail() {
-
+  //redux 
+  //const [state, dispatch] = useStoreContext();
+  // redux useStoreContent logic
   const state = useSelector((state) => {
     return state
   });
@@ -46,7 +48,7 @@ function Detail() {
         idbPromise('products', 'put', product);
       });
     }
-
+    
     else if (!loading) {
       idbPromise('products', 'get').then((indexedProducts) => {
         dispatch({

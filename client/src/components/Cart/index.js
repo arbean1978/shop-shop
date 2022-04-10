@@ -4,15 +4,22 @@ import { idbPromise } from "../../utils/helpers";
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import './style.css';
+// redux
 //import { useStoreContext } from '../../utils/GlobalState';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from '@apollo/react-hooks';
 import { QUERY_CHECKOUT } from "../../utils/queries"
 
-const stripePromise = loadStripe('pk_test_51KmRAADm7uhv4WBiAHwKVqz3f29TWnDm1TEboZQUiRZ5abF6WMfIF2vZtWbRNkgyixP5m6ad28XdhiofdRjk2bCv00khHtv5fm');
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
+
+
+
+// redux
+  //const [state, dispatch] = useStoreContext();
 
   const state = useSelector((state) => {
     return state
@@ -20,7 +27,7 @@ const Cart = () => {
 
   const dispatch = useDispatch();
 
-  
+
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
 
@@ -35,6 +42,7 @@ const Cart = () => {
       getCart();
     }
   }, [state.cart.length, dispatch]);
+
 
   useEffect(() => {
     if (data) {
@@ -57,6 +65,7 @@ const Cart = () => {
     return sum.toFixed(2);
   }
 
+    
        function submitCheckout() {
         const productIds = [];
     
