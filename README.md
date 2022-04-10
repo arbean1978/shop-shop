@@ -28,7 +28,7 @@ MERN
 
 ### Open your favorite web browser and enter the following web address to start using the website.
 
-https://guarded-bayou-40771.herokuapp.com
+https://still-tundra-95388.herokuapp.com/
 
 
 <a name="usage"></a>
